@@ -6,6 +6,8 @@ class Authorization
 
   field :provider
   field :uid
+  field :token
+  field :secret
   embedded_in :user, :inverse_of => :authorizations
 
   validates_presence_of :uid, :provider

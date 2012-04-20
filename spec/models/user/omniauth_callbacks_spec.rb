@@ -55,5 +55,27 @@ describe User::OmniauthCallbacks do
       description = data["description"] = "A newbie Ruby developer"
       callback.new_from_provider_data(nil, nil, data).tagline.should == description
     end
+
+    it "should convert weibo image url" do
+      data["image"] = "http://tp3.sinaimg.cn/1689213974/50/1266825599/1"
+      url = callback.send(:convert_image_url, 'weibo', data['image'])
+      url.should == 'http://tp3.sinaimg.cn/1689213974/180/1266825599/1.jpg'
+    end
+
+    it "should convert douban image url" do
+      data["image"] = "http://img3.douban.com/icon/u36865564-2.jpg"
+      url = callback.send(:convert_image_url, 'douban', data['image'])
+      url.should == 'http://img3.douban.com/icon/ul36865564-2.jpg'
+    end
+
+    it "should setup weibo avatar from image url" do
+      data["image"] = "http://tp3.sinaimg.cn/1689213974/50/1266825599/1"
+      callback.new_from_provider_data('weibo', uid, data).avatar.should be_present
+    end
+
+    it "should setup douban avatar from image url" do
+      data["image"] = "http://img3.douban.com/icon/u36865564-2.jpg"
+      callback.new_from_provider_data('douban', uid, data).avatar.should be_present
+    end
   end
 end

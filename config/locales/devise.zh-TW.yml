@@ -7,6 +7,7 @@
       not_saved: "有 %{count} 個錯誤發生導致「%{model}」無法被儲存。 "
   devise:
     failure:
+      already_authenticated: '您已经登錄.'
       unauthenticated: '繼續操作前請註冊或者登錄.'
       unconfirmed: '請先啟動您的帳號'
       locked: '您的帳號已被鎖定。'

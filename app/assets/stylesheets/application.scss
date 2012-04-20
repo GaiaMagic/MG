@@ -14,7 +14,11 @@ html {
   height: 100%;
   background:#eee image-url('bg.png') bottom left repeat;
 }
-body { background:none;}
+body {
+  background:none;
+  word-wrap: break-word;
+  word-break: break-all;
+}
 
 code { background:none; }
 
