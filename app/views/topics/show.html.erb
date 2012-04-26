@@ -17,15 +17,15 @@
 
       <%= raw SiteConfig.after_topic_html %>
 
-      <div class="tools pull-right">
+      <div class="tools topic-actions pull-right">
         <%= likeable_tag(@topic) %>
         <%= topic_favorite_tag(@topic) %>
         <% if owner?(@topic) or admin? %>
-          <%= link_to "", edit_topic_path(@topic), :class => "icon small_edit", :title => "修改本帖" %>
-          <%= link_to "", topic_path(@topic.id), :method => :delete, :confirm => t("common.confirm_delete"), :class => "icon small_delete", :title => "删除本帖" %>
+          <%= link_to "编辑", edit_topic_path(@topic), :title => "修改本帖" %>
+          <%= link_to "删除", topic_path(@topic.id), :method => :delete, :confirm => t("common.confirm_delete"), :title => "删除" %>
         <% end %>
       </div>
-      <%= social_share_button_tag("#{@topic.title}") %>
+      <span class="pull-left">分享到：</span><%= social_share_button_tag("#{@topic.title}") %>
     </div>
   </div>
 

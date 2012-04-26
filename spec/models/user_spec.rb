@@ -40,7 +40,7 @@ describe User do
       user_for_delete1.authorizations.should == []
     end
   end
-  
+
   describe "location" do
     it "should not get results when user location not set" do
       Location.count == 0
@@ -51,7 +51,7 @@ describe User do
       user2.location = "Hongkong"
       Location.count == 2
     end
-    
+
     it "should update users_count when user location changed" do
       old_name = user.location
       new_name = "HongKong"
@@ -128,17 +128,17 @@ describe User do
       user.private_token.should_not == old_token
     end
   end
-  
+
   describe "favorite topic" do
     it "should favorite a topic" do
       user.favorite_topic(topic.id)
       user.favorite_topic_ids.include?(topic.id).should == true
-      
+
       user.favorite_topic(nil).should == false
       user.favorite_topic(topic.id.to_s).should == false
       user.favorite_topic_ids.include?(topic.id).should == true
     end
-    
+
     it "should unfavorite a topic" do
       user.unfavorite_topic(topic.id)
       user.favorite_topic_ids.include?(topic.id).should == false
@@ -155,6 +155,22 @@ describe User do
       user.should_not be_valid
       user.login = '*中文ABcd12_'
       user.should_not be_valid
+    end
+  end
+
+  describe 'bind sns' do
+    let(:respond) do
+      {
+        "uid" => "123",
+        "provider" => "weibo",
+        "credentials" => { 'token' => 'token', 'secret' => 'secret' }
+      }
+    end
+
+    it "should bind sns accout" do
+      user.bind_service(respond)
+      user.bind?(:weibo).should be_true
+      user.bind?('weibo').should be_true
     end
   end
 end

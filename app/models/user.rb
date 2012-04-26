@@ -151,13 +151,16 @@ class User
   end
 
   def bind?(provider)
-    self.authorizations.collect { |a| a.provider }.include?(provider)
+    self.authorizations.collect { |a| a.provider }.include?(provider.to_s)
   end
 
   def bind_service(response)
     provider = response["provider"]
     uid = response["uid"]
-    authorizations.create(:provider => provider , :uid => uid )
+    credentials = response['credentials']
+    authorizations.create(:provider => provider, :uid => uid,
+                          :token => credentials['token'],
+                          :secret => credentials['secret'])
   end
 
   # 是否读过 topic 的最近更新

@@ -1,9 +1,12 @@
 <ul>
-  <li>支持 Markdown 格式</li>
-  <li><strong>**粗体**</strong>、~~删除线~~、<code>`单行代码`</code></li>
-  <li>http://example.org 自动加链接</li>
-  <li>@name  会链接到用户页面，并会通知他</li>
-  <li>![Alt text here](http://foo.com/bar.jpg) 显示图片</li>
+  <li><h5># 二级标题(#后有1个空格)</h5></li>
+  <li><strong>**粗体**</strong></li>
+  <li>~~删除线~~</li>
+  <li><code>`颜色块`</code></li>
+  <li>http://example.com 自动加链接</li>
+  <li>@用户名 会链接到用户页面，并会通知他</li>
+  <li>![](http://example.com/img.jpg) 显示链接地址的图片</li>
+  <li><strong>注意：</strong>以上的一些特别标记符号都是英文字符 (即半角字符)</li>
   <li><a href="#" data-controls-modal="markdown_help_tip_modal" data-keyboard="true" data-backdrop="true">点击这里</a>，或者按“M”键查看更多帮助。</li>
 </ul>
 
@@ -14,18 +17,20 @@
   </div>
   <div class="modal-body">
     <ul>
-      <li>支持 Markdown 格式</li>
-      <li><strong>**粗体**</strong>、~~删除线~~、<code>`单行代码`</code></li>
-      <li>http://example.org 自动加链接</li>
-      <li>@name  会链接到用户页面，并会通知他</li>
-      <li>![Alt text here](http://foo.com/bar.jpg) 显示图片</li>
-      <li>多行代码格式，使用3个`包起来，注意要换行，第一个```后面接语言名称(ruby,bash,html,css,python,erb,java... <a href="http://pygments.org/docs/lexers/" target="_blank">更多</a>)<br />
-        比如这样：
-          <pre style="border:0;background:#FFF;margin:0;">```ruby
-class Hello
-end
+      <li><h5># 二级标题</h5></li>
+      <li><strong>**粗体**</strong>、~~删除线~~、<code>`颜色块`</code></li>
+      <li>http://example.com 自动加链接</li>
+      <li>@name 会链接到用户页面，并会通知他</li>
+      <li>![](http://example.com/image.jpg) 显示链接地址的图片</li>
+
+      <li>引用多行文字，使用3个`包起来，注意要换行，比如这样：
+          <pre style="border:0;background:#FFF;margin:0;">`` 
+第一行引用
+第二行引用
 ```</pre>
       </li>
+      <hr/>
+      <li><strong>注意：</strong>以上的一些特别标记符号都是英文字符 (即半角字符)</li>
     </ul>
   </div>
 </div>
