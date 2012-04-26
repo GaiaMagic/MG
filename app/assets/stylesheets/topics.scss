@@ -32,14 +32,16 @@
       }
    }
    .body {
-     margin-bottom:10px; margin-top:8px;
+     margin-bottom:20px; margin-top:8px;
      img { max-width:690px;}
    }
-   .tools { 
-     text-align:right; height:16px; overflow:hidden;
+   .tools.topic-actions {
+     a {
+       font-size: 10px; margin-left: 5px; text-decoration: none; border-radius: 3px;
+       background-color: #e0e0e0; border: 1px solid silver; color: #333;padding: 2px 4px 2px 4px;
+     }
      a.likeable { 
        i { position:relative; margin-bottom:-1px; }
-       text-decoration: none;
      }
    }
    .topic_line {border-bottom:1px solid #DDD; padding:10px 0; margin:0 -10px; vertical-align:top; }
@@ -134,7 +136,7 @@
 /* Topic & Reply body format */
 .topics .topic .body, 
 #replies .reply .body {
-  line-height:180%; font-size:14px; text-overflow: ellipsis; word-wrap: break-word; 
+  line-height:2em; font-size:14px; text-overflow: ellipsis; word-wrap: break-word;
   a:link, a:visited { color:#0069D6; text-decoration: none; }
   a:hover { text-decoration: underline; color:#00438A; }
   a.at_floor { color:#376B43; }
@@ -143,7 +145,7 @@
     i { color:#777; }
   }
   h4 { font-weight:bold; font-size:15px; line-height:100%; margin:0; color:#222; margin-top:20px; border-left:15px solid #eee; padding-left:5px; margin-bottom:8px;  }
-  p { margin-bottom:10px; }
+  p { margin-bottom:1em; }
   strong { color:#000; }
   ul,
   ol {

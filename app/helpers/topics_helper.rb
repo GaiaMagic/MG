@@ -19,11 +19,12 @@ module TopicsHelper
     class_name = "bookmark"
     link_title = "收藏"
     if current_user and current_user.favorite_topic_ids.include?(topic.id)
-      class_name = "bookmarked"
+      class_name = "favorited"
       link_title = "取消收藏"
     end
     
-    link_to "", "#", :onclick => "return Topics.favorite(this);", 'data-id' => topic.id, :class => "icon small_#{class_name}", :title => link_title, :rel => "twipsy"
+    link_to link_title, "#", :onclick => "return Topics.favorite(this);", :class => class_name,
+            'data-id' => topic.id, :title => link_title, :rel => "twipsy"
   end
 
   def render_topic_title(topic)
