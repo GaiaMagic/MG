@@ -1,5 +1,10 @@
 <div id="reply" class="form box">
     <div style="padding:20px;">
-    需要 <%= link_to(t("common.login"), "/account/sign_in", :class => "btn primary")%> 后回复方可回复, 如果你还没有账号你可以 <%= link_to("#{t("common.register")}", "/account/sign_up", :class => "btn danger")%> 一个帐号。
+      需要<%= link_to_if(Setting.registerable, t("common.login"), "/account/sign_in", :class => "btn primary")%>后方可回复, 如果你还没有账号你可以
+      <%= link_to_if(Setting.registerable, "注册一个帐号", "/account/sign_up", :class => "btn danger") do %>
+        <%= link_to(t("common.weibo_login"), user_omniauth_authorize_path(:weibo), :class => "btn danger") %>
+        或者
+        <%= link_to(t("common.douban_login"), user_omniauth_authorize_path(:douban), :class => "btn danger") %>
+      <% end %>
     </div>
 </div>
