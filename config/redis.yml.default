@@ -2,6 +2,7 @@ defaults: &defaults
   host: '127.0.0.1'
   port: 6379
   redis_search_namespace: 'rc:rs'
+  db: 4
 development:
   <<: *defaults
 test:
